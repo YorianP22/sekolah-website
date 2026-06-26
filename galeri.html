@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeri — SMA Negeri 1 Harapan Bangsa</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Dokumentasi</span>
+    <h1>Galeri Sekolah</h1>
+    <p style="max-width:640px;">Momen kegiatan, prestasi, dan keseharian di SMA Negeri 1 Harapan Bangsa.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid--4" id="galeriList"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script>
+  Layout.renderHeader('galeri');
+  Layout.renderFooter();
+  renderGaleri(document.getElementById('galeriList'));
+</script>
+</body>
+</html>

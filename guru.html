@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Guru — SMA Negeri 1 Harapan Bangsa</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Tenaga Pendidik</span>
+    <h1>Data Guru</h1>
+    <p style="max-width:640px;">Para pendidik profesional yang membimbing siswa di berbagai bidang studi.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid--4" id="guruList"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script>
+  Layout.renderHeader('guru');
+  Layout.renderFooter();
+  renderGuru(document.getElementById('guruList'));
+</script>
+</body>
+</html>

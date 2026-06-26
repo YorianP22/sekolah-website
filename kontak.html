@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — SMA Negeri 1 Harapan Bangsa</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Hubungi Kami</span>
+    <h1>Kontak</h1>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container grid grid--2" style="align-items:start;">
+    <div class="card">
+      <h3>Informasi Kontak</h3>
+      <ul style="display:grid; gap:14px; margin-top:16px;">
+        <li><strong>Alamat:</strong><br>Jl. Pendidikan No. 17, Jakarta</li>
+        <li><strong>Telepon:</strong><br>(021) 555-0123</li>
+        <li><strong>Email:</strong><br>info@sman1harapanbangsa.sch.id</li>
+        <li><strong>Jam Operasional:</strong><br>Senin–Jumat, 07.00–15.00 WIB</li>
+      </ul>
+    </div>
+    <div class="card form-card" style="max-width:none;">
+      <h3>Kirim Pesan</h3>
+      <div id="kontakAlert" class="alert" style="display:none;"></div>
+      <form id="kontakForm">
+        <div class="form-field">
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="pesan">Pesan</label>
+          <textarea id="pesan" name="pesan" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Kirim Pesan</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script>
+  Layout.renderHeader('kontak');
+  Layout.renderFooter();
+  initKontakForm(document.getElementById('kontakForm'), document.getElementById('kontakAlert'));
+</script>
+</body>
+</html>

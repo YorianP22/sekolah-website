@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beranda — SMA Negeri 1 Harapan Bangsa</title>
+<meta name="description" content="Website resmi SMA Negeri 1 Harapan Bangsa: profil, visi misi, data guru, berita, pengumuman, dan galeri sekolah.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="hero container">
+  <div>
+    <span class="eyebrow">Website Resmi Sekolah</span>
+    <h1>Mendidik dengan Hati, Berkarya untuk Bangsa.</h1>
+    <p class="hero__tagline">SMA Negeri 1 Harapan Bangsa membentuk generasi yang cakap akademik, berkarakter, dan siap menghadapi masa depan — sejak 1985.</p>
+    <div class="hero__cta">
+      <a href="profil.html" class="btn btn--primary">Profil Sekolah</a>
+      <a href="kontak.html" class="btn btn--ghost">Hubungi Kami</a>
+    </div>
+  </div>
+  <div class="plaque">
+    <div class="plaque__title">Selayang Pandang</div>
+    <div class="plaque__grid">
+      <div class="plaque__stat"><b>1985</b><span>Tahun Berdiri</span></div>
+      <div class="plaque__stat"><b>A</b><span>Akreditasi</span></div>
+      <div class="plaque__stat"><b>980</b><span>Siswa Aktif</span></div>
+      <div class="plaque__stat"><b>64</b><span>Tenaga Pendidik</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="batik-divider"></div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Jelajahi</span>
+      <h2>Kenali Lebih Dekat</h2>
+    </div>
+    <div class="grid grid--4">
+      <a href="visi-misi.html" class="card card--link">
+        <div class="card__icon">🎯</div>
+        <h3>Visi & Misi</h3>
+        <p style="margin:0;">Arah dan tujuan pendidikan kami.</p>
+      </a>
+      <a href="guru.html" class="card card--link">
+        <div class="card__icon">🧑‍🏫</div>
+        <h3>Data Guru</h3>
+        <p style="margin:0;">Tenaga pendidik profesional di tiap bidang.</p>
+      </a>
+      <a href="galeri.html" class="card card--link">
+        <div class="card__icon">🖼️</div>
+        <h3>Galeri</h3>
+        <p style="margin:0;">Dokumentasi kegiatan & prestasi sekolah.</p>
+      </a>
+      <a href="berita.html" class="card card--link">
+        <div class="card__icon">📰</div>
+        <h3>Berita</h3>
+        <p style="margin:0;">Kabar dan agenda terbaru sekolah.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Papan Pengumuman</span>
+      <h2>Pengumuman Terbaru</h2>
+    </div>
+    <div class="pinboard">
+      <div class="grid grid--4" id="pengumumanList"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" style="display:flex; align-items:flex-end; justify-content:space-between; width:100%; max-width:none;">
+      <div>
+        <span class="eyebrow">Kabar Sekolah</span>
+        <h2>Berita Terbaru</h2>
+      </div>
+      <a href="berita.html" class="btn btn--ghost btn--sm">Lihat Semua</a>
+    </div>
+    <div id="beritaList"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script>
+  Layout.renderHeader('beranda');
+  Layout.renderFooter();
+  renderPengumuman(document.getElementById('pengumumanList'), 4);
+  renderBerita(document.getElementById('beritaList'), 3);
+</script>
+</body>
+</html>

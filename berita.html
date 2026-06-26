@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berita & Pengumuman — SMA Negeri 1 Harapan Bangsa</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Kabar Sekolah</span>
+    <h1>Berita & Pengumuman</h1>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Papan Pengumuman</span>
+    <h2 style="margin-top:10px;">Pengumuman</h2>
+    <div class="pinboard" style="margin-top:18px;">
+      <div class="grid grid--4" id="pengumumanList"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <span class="eyebrow">Liputan</span>
+    <h2 style="margin-top:10px;">Semua Berita</h2>
+    <div id="beritaList" style="margin-top:18px;"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+<script>
+  Layout.renderHeader('berita');
+  Layout.renderFooter();
+  renderPengumuman(document.getElementById('pengumumanList'), 8);
+  renderBerita(document.getElementById('beritaList'), 50);
+</script>
+</body>
+</html>

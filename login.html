@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Admin — SMA Negeri 1 Harapan Bangsa</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="section" style="min-height:60vh; display:flex; align-items:center;">
+  <div class="container" style="max-width:420px;">
+    <div class="card form-card" style="max-width:none;">
+      <span class="eyebrow">Area Terbatas</span>
+      <h2 style="margin-top:10px;">Login Admin</h2>
+      <p style="font-size:0.9rem;">Khusus untuk pengelola konten berita, pengumuman, dan galeri sekolah.</p>
+      <div id="loginAlert" class="alert alert--error" style="display:none;"></div>
+      <form id="loginForm">
+        <div class="form-field">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required autocomplete="username">
+        </div>
+        <div class="form-field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn--primary" style="width:100%;">Masuk</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/auth.js"></script>
+<script>
+  Layout.renderHeader('');
+  Layout.renderFooter();
+
+  if (Auth.isLoggedIn()) window.location.href = 'admin/dashboard.html';
+
+  const form = document.getElementById('loginForm');
+  const alertEl = document.getElementById('loginAlert');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true; btn.textContent = 'Memeriksa…';
+    alertEl.style.display = 'none';
+    try {
+      const res = await Api.post('login', {
+        username: form.username.value.trim(),
+        password: form.password.value,
+      });
+      if (res.success) {
+        Auth.setSession(res.token, res.username);
+        window.location.href = 'admin/dashboard.html';
+      } else {
+        alertEl.textContent = res.message || 'Login gagal.';
+        alertEl.style.display = 'block';
+      }
+    } catch (err) {
+      alertEl.textContent = 'Tidak dapat terhubung ke server: ' + err.message;
+      alertEl.style.display = 'block';
+    } finally {
+      btn.disabled = false; btn.textContent = 'Masuk';
+    }
+  });
+</script>
+</body>
+</html>
